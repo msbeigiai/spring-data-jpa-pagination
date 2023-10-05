@@ -25,7 +25,9 @@ public class UserController {
     public ResponseEntity<HttpResponse> getUsers(
             @RequestParam Optional<String> name,
             @RequestParam Optional<Integer> page,
-            @RequestParam Optional<Integer> size) {
+            @RequestParam Optional<Integer> size) throws InterruptedException {
+        Thread.sleep(3000);
+//        throw new RuntimeException("Forced exception for testing");
         return ResponseEntity.ok().body(
                 HttpResponse.builder()
                         .timestamp(LocalDateTime.now().toString())
